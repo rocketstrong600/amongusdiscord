@@ -84,13 +84,13 @@ func discordMainWrapper() error {
 	if len(ports) == 0 || len(tempPort) == 0 {
 		num, err := strconv.Atoi(tempPort)
 
-		//if err != nil || num < 1024 || num > 65535 {
-		//	log.Printf("[Info] Invalid or no particular PORT (range [1024-65535]) provided. Defaulting to %s\n", DefaultPort)
-		//	ports[0] = DefaultPort
-		//}
+		if err != nil || num < 1024 || num > 65535 {
+			log.Printf("[Info] Invalid or no particular PORT (range [1024-65535]) provided. Defaulting to %s\n", DefaultPort)
+			//ports[0] = DefaultPort
+		}
 	} else if len(portStrings) == numShards {
 		for i := 0; i < numShards; i++ {
-			num, err := strconv.Atoi(portStrings[i])
+			//num, err := strconv.Atoi(portStrings[i])
 			//if err != nil || num < 1024 || num > 65535 {
 			//	return errors.New("invalid or no particular PORT (range [1024-65535]) provided")
 			//}
