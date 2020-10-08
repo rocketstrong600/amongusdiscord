@@ -45,9 +45,9 @@ func (bot *Bot) handleNewGameMessage(guild *GuildState, s *discordgo.Session, m 
 
 	var hyperlink string
 	if strings.HasPrefix(bot.url, "https://") {
-		hyperlink = fmt.Sprintf("aucapture://%s:%s/%s", strings.Replace(bot.url, "https://", "", 1), bot.socketPort, connectCode)
+		hyperlink = fmt.Sprintf("aucapture://%s:%s/%s", strings.Replace(bot.url, "https://", "", 1), 80, connectCode)
 	} else if strings.HasPrefix(bot.url, "http://") {
-		hyperlink = fmt.Sprintf("aucapture://%s:%s/%s?insecure", strings.Replace(bot.url, "http://", "", 1), bot.socketPort, connectCode)
+		hyperlink = fmt.Sprintf("aucapture://%s:%s/%s?insecure", strings.Replace(bot.url, "http://", "", 1), 80, connectCode)
 	} else {
 		hyperlink = "aucapture://INVALID_PROTOCOL_ON_SERVER_URL"
 	}
